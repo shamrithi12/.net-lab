@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Radiant Software Limited - Feedback Form</title>
+
+        <script language="c#" runat="server">
+                void Button1_Click(object Source, EventArgs e)
+                {
+                    String str = "";
+                    if (Male.Checked == true)
+                        str = "Mr.";
+                    else if (Female.Checked == true)
+                        str = "Miss.";
+                    Message.InnerHtml = "Thanks " + str + " " +name.Value + " for your feedback.";
+                }
+</script>
+</head>
+    <body>
+        <h5><font face="Arial">Courseware Feedback Form</font></h5>
+        <form runat="server">
+            <p>Student name:<input id="name" type="text" size=40 runat="server" />Male<br>
+                <panel>Sex:<input type="radio" id="Male" name="Mode" runat="server" />Male<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" id="Female" name="Mode" runat="server" />Female<br>
+                    <p>Select Course: <select id="colorSelect" runat="server">
+                        <option>ASP-XML</option>
+                        <option>DotNET</option>
+                        <option>JavaPro</option>
+                        <option>Unix,C,C++</option>
+                        </select><br>
+                        <p>Technical Coverage:</p>
+                        <input type="radio" id="Excellent" name="Mode2" runat="server" />Excellent<br>
+                        <input type="radio" id="Good" name="Mode2" runat="server" />Good<br>
+                        <input type="radio" id="Average" name="Mode2" runat="server" />Average<br>
+                        <input type="radio" id="Poor" name="Mode2" runat="server" />Poor
+                        <p>Suggesstions:</p>
+                        <textarea id="TextArea1" runat="server" cols=40 rows=2 />
+                        <input type="button" id="Button1" value="Submit Form" OnServerClick="Button1_Click" runat="server">
+                        <p><span id="Message" runat="server"/></p>
+                            </form>
+        </body>
+</html>
